@@ -10,11 +10,16 @@ def index():
     '''
 
     #getting technology news
-    technology_source = get_news_source('za','technology')
-    print(technology_source)
+    sport = get_news_source('za','sport')
+    science = get_news_source('za','science')
+    health = get_news_source('za','health')
+    entertainment = get_news_source('za','entertainment')
+    business = get_news_source('za','business')
+    technology = get_news_source('za','technology')
+    print(technology)
 
     title = " hey lewis is back in the business"
-    return render_template('index.html', title = title, technology_source = technology_source)
+    return render_template('index.html', title = title, technology = technology, sport=sport,science=science,health=health,business=business,entertainment=entertainment)
 @app.route('/news/<int:totalResults>')
 def news(totalResults):
     '''
