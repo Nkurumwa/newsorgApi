@@ -10,5 +10,13 @@
     </head>
     <body>
 
+        <!-- technology  section  -->
+        <h3> technology News</h3>
+         <ul>
+            {% for technology_source in technology_source %}
+                <li>{{ technology_source.title}}</li>
+            {% endfor %}
+        </ul>
+
     </body>
 </html>
