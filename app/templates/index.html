@@ -1,50 +1,56 @@
+{% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> news review  </title>
-        {% endif %}
-    </head>
-    <body>
-<!-- technology  section  -->
-<h3> technology News</h3>
-<ul>
-   
-       {{ macro.displayNewsList(technology)}}
-   
-</ul>
-<!-- entertainment  section  -->
-<h3> Entertainment News</h3>
-<ul>
-  
-       {{  macro.displayNewsList(entertainment)}}
- 
-</ul>
-<!-- health  section  -->
-<h3> health News</h3>
-<ul>
-  
-       {{  macro.displayNewsList(health)}}
- 
-</ul>
-<!-- ssience  section  -->
-<h3> science News</h3>
-<ul>
-   
-       {{  macro.displayNewsList(science)}}
-  
-</ul>
-<!-- sports  section  -->
-<h3> sport News</h3>
-<ul>
-   
-       {{  macro.displayNewsList(sport)}}
- 
-</ul>
 
-    </body>
+<head>
+    <meta charset="utf-8"> {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> news review </title>
+    {% endif %}
+</head>
+
+<body>
+        {% block content %}
+    
+    
+    <!-- technology  section  -->
+    <h3> technology News</h3>
+    <ul>
+
+        {{ macro.displayNewsList(technology)}}
+
+    </ul>
+    <!-- entertainment  section  -->
+    <h3> Entertainment News</h3>
+    <ul>
+
+        {{ macro.displayNewsList(entertainment)}}
+
+    </ul>
+    <!-- health  section  -->
+    <h3> health News</h3>
+    <ul>
+
+        {{ macro.displayNewsList(health)}}
+
+    </ul>
+    <!-- ssience  section  -->
+    <h3> science News</h3>
+    <ul>
+
+        {{ macro.displayNewsList(science)}}
+
+    </ul>
+    <!-- sports  section  -->
+    <h3> sport News</h3>
+    <ul>
+
+        {{ macro.displayNewsList(sport)}}
+
+    </ul>
+    {% endblock  %}
+</body>
+
 </html>
