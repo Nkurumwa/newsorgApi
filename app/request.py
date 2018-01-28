@@ -81,4 +81,18 @@ def get_news_details(title):
 
     return news_object
 
-# function to display the news detals
+# function to search for movies
+
+def search_news(news_title):
+    search_news_url = 'https://newsapi.org/v2/everything?q={}&apiKey={}'.format(news_title,api_key)
+    with urllib.request.urlopen(search_news_url) as url:
+        search_news_data = url.read()
+        search_news_response = json.loads(search_news_data)
+
+        search_news_results = None
+
+        if search_news_response['articles']:
+            search_news_list = search_news_response['articles']
+            search_news_results = process_results(search_news_list)
+
+    return search_news_results
