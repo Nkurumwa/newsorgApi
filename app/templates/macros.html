@@ -2,26 +2,31 @@
 
 
 <div class="">
-    
-    
+
+
 
     <h2>{{source_result.title}}</h2>
-                    <li>
-                            <img src="{{ source_result.urlToImage }}" alt="{{source_result.title}}" class="img-responsive" />
-                        </li>
-                
-                        <a href="{{source_result.url}}">
-                           <b> <h3>click here to see more news ....</h3></b></a>
+    <li>
+        <img src="{{ source_result.urlToImage }}" alt="{{source_result.title}}" class="img-responsive" />
+    </li>
 
-                          <b>the following artical was published at : {{ source_result.publishedAt }}</b>
-                
-                
+    <a href="{{source_result.url}}">
+        <b>
+            <h3>click here to see more news ....</h3>
+        </b>
+    </a>
 
-            </div>
+    <b>the following artical was published at : {{ source_result.publishedAt }}</b><br />
+    {{ source_result.description }}
 
-       
-        
-    </div>
+
+
+
+</div>
+
+
+
+</div>
 </div>
 
 {% endfor %} {% endmacro %}
