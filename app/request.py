@@ -58,27 +58,27 @@ def process_result(source_list):
 
 # a function to get all the news details 
 
-# def get_news_details(title):
-#     get_news_details_url = base_url.format(title,api_key)
+def get_news_details(title):
+    get_news_details_url = base_url.format(title,api_key)
 
-#     with urllib.request.urlopen(get_news_details_url) as url:
-#         news_details_data = url.read()
-#         news_detail_response = json.load(news_details_data)
-#         print(news_detail_response)
+    with urllib.request.urlopen(get_news_details_url) as url:
+        news_details_data = url.read()
+        news_detail_response = json.load(news_details_data)
+        print(news_detail_response)
 
-#         news_object = None
+        news_object = None
 
-#         if news_detail_response:
-#             auther = news_detail_response.get('author')
-#             name = news_detail_response.get('name')
-#             title = news_detail_response.get('title')
-#             description = news_detail_response.get('description')
-#             url = news_detail_response.get('url')
-#             urlToImage = news_detail_response.get('urlToImage')
-#             publishedAt = news_detail_response.get('publishedAt')
+        if news_detail_response:
+            auther = news_detail_response.get('author')
+            name = news_detail_response.get('name')
+            title = news_detail_response.get('title')
+            description = news_detail_response.get('description')
+            url = news_detail_response.get('url')
+            urlToImage = news_detail_response.get('urlToImage')
+            publishedAt = news_detail_response.get('publishedAt')
                 
-#             news_object = News(name,auther,title,description,url,urlToImage,publishedAt)
+            news_object = News(name,auther,title,description,url,urlToImage,publishedAt)
 
-#     return news_object
+    return news_object
 
 # function to display the news detals
