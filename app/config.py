@@ -16,7 +16,6 @@ class prodConfig(Config):
 class devConfig(Config):
     '''
     configurations of development configurations
-
     '''
     DEBUG = True
 

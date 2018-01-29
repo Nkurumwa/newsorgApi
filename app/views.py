@@ -51,4 +51,4 @@ def search(news_title):
     searched_news = search_news(news_name_format)
     title = f'search results for (news_title)'
 
-    return render_template('search.html' news = searched_news )
+    return render_template('search.html' ,news = searched_news )
