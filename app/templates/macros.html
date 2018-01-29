@@ -1,31 +1,40 @@
-{% macro displayNewsList(source_list) %} {% for source_result in source_list %}
+{% macro displayNewsList(source_list) %}
+ {% for source_result in source_list %}
 
 
 <div class="">
 
+    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 movie-card">
+
+        <h2>{{source_result.title}}</h2>
+        <li>
+
+            <img src="{{ source_result.urlToImage }}" alt="{{source_result.title}}" class="img-responsive" />
+
+        </li>
+
+        <a href="{{source_result.url}}" target="_blank">
+            <b>
+                <h3>click here to see more news ....</h3>
+            </b>
+        </a>
+
+        <b>the following artical was published at : {{ source_result.publishedAt }}</b>
+        <br /> {{ source_result.description }}
+        <br /> {{ source_result.auther }}
+        <br /> {{ source_result.name }}
 
 
-    <h2>{{source_result.title}}</h2>
-    <li>
-        <img src="{{ source_result.urlToImage }}" alt="{{source_result.title}}" class="img-responsive" />
-    </li>
-
-    <a href="{{source_result.url}}">
-        <b>
-            <h3>click here to see more news ....</h3>
-        </b>
-    </a>
-
-    <b>the following artical was published at : {{ source_result.publishedAt }}</b><br />
-    {{ source_result.description }}<br />
-    {{ source_result.auther }} <br />
+<li class="text-center">
+                <a href="/news/{{source_result.title}}"> clik here .....
+                    {{ source_result.title|truncate(10)}}</a>
+            </li>
 
 
 
+    </div>
 
 </div>
-
-
 
 </div>
 </div>

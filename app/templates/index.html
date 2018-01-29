@@ -1,22 +1,30 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro%}
+{% extends 'base.html'%} {% import 'macros.html' as macro%}
 
 
 <body>
-        {% block content %}
-    
-    
+    {% block content %}
+
+    <div class="container">
+            <form>
+                <input type="text" name="movie_query" placeholder="Search for a Movie" class="form-control">
+                <input type="submit"  value="Submit" class="btn btn-default">
+            </form>
+        
+        </div>
+
     <!-- technology  section  -->
     <h3> technology News</h3>
-    <div class="well">
 
-<ul>
+    <ul>
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 posterPath">
 
-        {{ macro.displayNewsList(technology)}}
 
+                {{ macro.displayNewsList(technology)}}
+            </div>
+        </div>
     </ul>
-    </div>
-    
+    <hr>
     <!-- entertainment  section  -->
     <h3> Entertainment News</h3>
     <ul>
@@ -45,6 +53,6 @@
         {{ macro.displayNewsList(sport)}}
 
     </ul>
-    {% endblock  %}
+    {% endblock %}
 
-
+    
