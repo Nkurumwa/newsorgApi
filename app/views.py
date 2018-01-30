@@ -10,8 +10,11 @@ def index():
     function that returns index page
     '''
     message = 'hello world'
+    title = 'the best news website ever'
 
-    return render_template('index.html',message=message)
+
+
+    return render_template('index.html',message=message,title=title)
 
 
 # dynamic routes
