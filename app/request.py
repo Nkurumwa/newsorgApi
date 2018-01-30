@@ -34,9 +34,16 @@ def process_results(news_list):
     function that takes in the movie results and transform them to a list
     '''
     news_result =[]
+    source_dictionary = {}
     for news_item in news_list:
-        id = news_item.get('id')
-        name = news_item.get('name')
+        #storing the nested list in source id
+        source_id = news_item['source']
+        #extract information
+        source_dictionary['id'] = source_id['id']
+        source_dictionary['name'] = source_id['name']
+        id = source_dictionary['id']
+        name = source_dictionary['name']
+        print(name)
         author = news_item.get('author')
         title = news_item.get('title')
         description = news_item.get('description')

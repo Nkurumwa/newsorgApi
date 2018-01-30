@@ -1,71 +1,57 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
 
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        {% if title %}
-        <title> {{ title }}</title>
-        {% else %}
-        <title> <h1><b>N</b></h1> </title>
-        {% endif %}
-    </head>
-    <body>
+{% block content %}
             <h1>{{ message }}</h1>
 
 
           <!-- Popular movie section  -->
           <h3> business</h3>
           <ul>
-             {% for business in business %}
-                 <li>{{ business.title}}</li>
-             {% endfor %}
+             
+                 <li>{{macro.displayNewsList(business)}}</li>
+            
          </ul>
-          <!-- Popular movie section  -->
-          <h3> business</h3>
+          <!-- entertainment  -->
+          <h3> entertainment</h3>
           <ul>
-             {% for entertainment in  entertainment %}
-                 <li>{{ entertainment.title}}</li>
-             {% endfor %}
+             
+                 <li>{{macro.displayNewsList(entertainment)}}</li>
+            
          </ul>
-          <!-- Popular movie section  -->
-          <h3> business</h3>
+          <!-- general  -->
+          <h3> general</h3>
           <ul>
-             {% for general in general %}
-                 <li>{{ general.title}}</li>
-             {% endfor %}
+           
+                 <li>{{ macro.displayNewsList(general)}}</li>
+           
          </ul>
-          <!-- Popular movie section  -->
-          <h3> business</h3>
+          <!-- health  -->
+          <h3> health</h3>
           <ul>
-             {% for health in health %}
-                 <li>{{ health.title}}</li>
-             {% endfor %}
+            
+                 <li>{{ macro.displayNewsList(health)}}</li>
+            
          </ul>
-          <!-- Popular movie section  -->
-          <h3> business</h3>
+          <!-- sports  -->
+          <h3> sports</h3>
           <ul>
-             {% for sports in sports %}
-                 <li>{{ sports.title}}</li>
-             {% endfor %}
+           
+                 <li>{{ macro.displayNewsList(sports)}}</li>
+          
          </ul>
-          <!-- Popular movie section  -->
-          <h3> business</h3>
+          <!-- science  -->
+          <h3> science</h3>
           <ul>
-             {% for science in science %}
-                 <li>{{ science.title}}</li>
-             {% endfor %}
+             
+                 <li>{{ macro.displayNewsList(science)}}</li>
+            
          </ul>
-          <!-- Popular movie section  -->
-          <h3> business</h3>
+          <!-- technology -->
+          <h3> technology</h3>
           <ul>
-             {% for technology in technology %}
-                 <li>{{ technology.title}}</li>
-             {% endfor %}
+            
+                 <li>{{ macro.displayNewsList(technology)}}</li>
+             
          </ul>
-        
-
-
-
-    </body>
-</html>
+{% endblock%}
