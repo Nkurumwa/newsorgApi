@@ -1,4 +1,4 @@
-lass Config:
+class Config:
     '''
     General configuration parent class
     '''
