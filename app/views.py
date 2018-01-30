@@ -12,3 +12,15 @@ def index():
     message = 'hello world'
 
     return render_template('index.html',message=message)
+
+
+# dynamic routes
+
+@app.route('/news/<init: news_id>')
+def news(news_id):
+    '''
+    view news details
+
+    '''
+
+    return render_template('news.html', id = news_id)
