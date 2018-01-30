@@ -1,57 +1,23 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro %}
 
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
+  
+
 {% block content %}
-            <h1>{{ message }}</h1>
+<h1>{{ message }}</h1>
 
 
-          <!-- Popular movie section  -->
-          <h3> business</h3>
-          <ul>
-             
-                 <li>{{macro.displayNewsList(business)}}</li>
-            
-         </ul>
-          <!-- entertainment  -->
-          <h3> entertainment</h3>
-          <ul>
-             
-                 <li>{{macro.displayNewsList(entertainment)}}</li>
-            
-         </ul>
-          <!-- general  -->
-          <h3> general</h3>
-          <ul>
-           
-                 <li>{{ macro.displayNewsList(general)}}</li>
-           
-         </ul>
-          <!-- health  -->
-          <h3> health</h3>
-          <ul>
-            
-                 <li>{{ macro.displayNewsList(health)}}</li>
-            
-         </ul>
-          <!-- sports  -->
-          <h3> sports</h3>
-          <ul>
-           
-                 <li>{{ macro.displayNewsList(sports)}}</li>
-          
-         </ul>
-          <!-- science  -->
-          <h3> science</h3>
-          <ul>
-             
-                 <li>{{ macro.displayNewsList(science)}}</li>
-            
-         </ul>
-          <!-- technology -->
-          <h3> technology</h3>
-          <ul>
-            
-                 <li>{{ macro.displayNewsList(technology)}}</li>
-             
-         </ul>
+
+
+
+
+
+
 {% endblock%}
+
+

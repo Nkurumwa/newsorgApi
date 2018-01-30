@@ -1,6 +1,6 @@
 from flask import render_template
 from app import app
-from .request import get_news
+from .request import get_news,get_details
 #views
 
 
@@ -13,26 +13,101 @@ def index():
     title = 'the best news website ever'
 
     #get article categories
-    business = get_news('business')
-    entertainment= get_news('entertainment')
-    general= get_news('general')
-    health= get_news('health')
-    science= get_news('science')
-    sports= get_news('sports')
-    technology= get_news('technology')
+   
+   
+    
+    
+   
+  
 
-
-    return render_template('index.html',message=message,title=title,business=business,entertainment=entertainment,general=general,health=health,science=science,sports=sports,technology=technology)
+    return render_template('index.html',message=message,title=title)
 
 
 
 # dynamic routes
+#bussiness news
 
-@app.route('/news/<int:news_id>')
-def news(news_id):
+@app.route('/news')
+def news():
     '''
     view news details
 
     '''
+    
+    business = get_news('business')
 
-    return render_template('news.html', id = news_id)
+    return render_template('news.html',news=news,business=business)
+
+
+#entertainment news
+
+@app.route('/entertainment')
+def entertainment():
+    '''
+    view news details
+
+    '''
+    entertainment= get_news('entertainment')
+    
+ 
+
+    return render_template('entertainment.html',entertainment=entertainment)
+
+
+@app.route('/general')
+def general():
+    '''
+    view news details
+
+    '''
+     
+    
+    general= get_news('general')
+
+    return render_template('general.html',general=general)
+
+
+@app.route('/health')
+def health():
+    '''
+    view news details
+
+    '''
+    health= get_news('health')
+
+    return render_template('health.html',health=health)
+
+@app.route('/sport')
+def sport():
+    '''
+    view news details
+
+    '''
+    sports= get_news('sports')
+
+    return render_template('sports.html',sports=sports)
+
+@app.route('/science')
+def science():
+    '''
+    view news details
+
+    '''
+    science= get_news('science')
+
+    return render_template('science.html',science=science)
+
+@app.route('/technology')
+def technology():
+    '''
+    view news details
+
+    '''
+      
+    technology= get_news('technology')
+
+
+    return render_template('technology.html',technology=technology)
+
+
+

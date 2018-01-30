@@ -1,0 +1,21 @@
+{% extends 'base.html'%} {% import 'macros.html' as macro %} {% block content %}
+<style>
+        img {
+            vertical-align: middle;
+            height: 158px;
+        }
+
+</style>
+<div class="container">
+
+
+    <h3> science</h3>
+    <ul>
+
+        <li>{{ macro.displayNewsList(science)}}</li>
+
+    </ul>
+
+
+</div>
+{% endblock%}

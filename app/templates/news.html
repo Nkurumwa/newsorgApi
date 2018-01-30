@@ -1,1 +1,21 @@
-<h1>hello  this is {{ id }}</h1>
+{% extends 'base.html'%}
+{% import 'macros.html' as macro %}
+{% block content %}
+<style>
+        img {
+            vertical-align: middle;
+            height: 158px;
+        }
+
+</style>
+<div class="container">
+
+<h3> business</h3>
+<ul>
+   
+       <li>{{macro.displayNewsList(business)}}</li>
+  
+</ul>
+
+</div>
+{% endblock%}

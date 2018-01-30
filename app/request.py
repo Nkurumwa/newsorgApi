@@ -56,3 +56,29 @@ def process_results(news_list):
             news_result.append(news_object)
     return news_result
 
+def get_details(id):
+    get_news_details_url = base_url.format(id,api_key)
+    with urllib.request.urlopen(get_news_details_url) as url:
+        news_details_data = url.read()
+        news_details_response = json.load(news_details_data)
+
+        news_object = None
+
+        if news_details_response:
+            #storing the nested list in source id
+            source_id = news_item['source']
+            #extract information
+            source_dictionary['id'] = source_id['id']
+            source_dictionary['name'] = source_id['name']
+            id = source_dictionary['id']
+            name = source_dictionary['name']
+            print(name)
+            author = news_item.get('author')
+            title = news_item.get('title')
+            description = news_item.get('description')
+            url = news_item.get('url')
+            urlToImage = news_item.get('urlToImage')
+            publishedAt = news_item.get('publishedAt')
+
+            news_object = Articles(id,name,author,title,description,url,urlToImage,publishedAt)
+    return news_object
