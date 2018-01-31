@@ -1,10 +1,10 @@
 from flask import render_template
-from app import app
-from .request import get_news,get_details
+from . import main
+from ..request import get_news,get_details
 #views
 
 
-@app.route('/')
+@main.route('/')
 def index():
     '''
     function that returns index page
@@ -27,7 +27,7 @@ def index():
 # dynamic routes
 #bussiness news
 
-@app.route('/news')
+@main.route('/news')
 def news():
     '''
     view news details
@@ -41,7 +41,7 @@ def news():
 
 #entertainment news
 
-@app.route('/entertainment')
+@main.route('/entertainment')
 def entertainment():
     '''
     view news details
@@ -54,7 +54,7 @@ def entertainment():
     return render_template('entertainment.html',entertainment=entertainment)
 
 
-@app.route('/general')
+@main.route('/general')
 def general():
     '''
     view news details
@@ -67,7 +67,7 @@ def general():
     return render_template('general.html',general=general)
 
 
-@app.route('/health')
+@main.route('/health')
 def health():
     '''
     view news details
@@ -77,7 +77,7 @@ def health():
 
     return render_template('health.html',health=health)
 
-@app.route('/sport')
+@main.route('/sport')
 def sport():
     '''
     view news details
@@ -87,7 +87,7 @@ def sport():
 
     return render_template('sports.html',sports=sports)
 
-@app.route('/science')
+@main.route('/science')
 def science():
     '''
     view news details
@@ -97,7 +97,7 @@ def science():
 
     return render_template('science.html',science=science)
 
-@app.route('/technology')
+@main.route('/technology')
 def technology():
     '''
     view news details
