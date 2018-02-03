@@ -1,23 +1,79 @@
-{% extends 'base.html'%}
-{% import 'macros.html' as macro %}
+{% extends 'base.html'%} {% import 'macros.html' as macro %} {% block content %}
 
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
+<blockquote class="blockquote blockquote-reverse" style="background-color: #eadddd;">
+    <p class="mb-0">Welcome to the best site in the word for viewing all your news at one place .</p>
+    <footer class="blockquote-footer">created by lewis munene <cite title="Source Title"> irimu</cite></footer>
+  </blockquote>
 
-  
+  <div class="w3-sidebar w3-bar-block w3-red" style="width:25%">
+      <a href="#" class="w3-bar-item w3-button">Link 1</a>
+      <a href="#" class="w3-bar-item w3-button">Link 2</a>
+      <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
 
-{% block content %}
-<h1>{{ message }}</h1>
+<div class="container">
+  <div class="well">
+    <h1>general </h1>
+  </div>
 
 
 
+  {{macro.displaySourceList(general)}}
 
 
 
+</div>
+<div class="container">
+  <div class="well">
+    <h1>business</h1>
+  </div>
 
 
+  {{macro.displaySourceList(business)}}
+
+</div>
+
+<div class="container">
+  <div class="well">
+    <h1>technology</h1>
+  </div>
+
+  {{macro.displaySourceList(technology)}}
+
+
+</div>
+
+<div class="container">
+  <div class="well">
+    <h1>sports</h1>
+  </div>
+
+  {{macro.displaySourceList(sports)}}
+
+</div>
+
+<div class="container">
+  <div class="well">
+    <h1>health</h1>
+  </div>
+
+  {{macro.displaySourceList(health)}}
+
+</div>
+<div class="container">
+  <div class="well">
+    <h1>science</h1>
+  </div>
+
+  {{macro.displaySourceList(science)}}
+
+</div>
+<div class="container">
+  <div class="well">
+    <h1>entertainment</h1>
+  </div>
+  {{macro.displaySourceList(entertainment)}}
+
+</div>
+</div>
 {% endblock%}
-
-

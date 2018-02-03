@@ -1,22 +1,28 @@
 import urllib.request,json
 from .models import Articles
-
+from .models import Source
 # Getting api key
 api_key = None
 # Getting the movie base url
 base_url = None
+#
+source_url =None
+
 
 def configure_request(app):
-    global api_key,base_url
+    global api_key,base_url,source_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_API_KEY_URL']
+    source_url = app.config['NEWS_API_SOURCES_URL']
 
 
-def get_news(category):
+
+
+def get_news(country,category):
     '''
     function of getting json response ro url
     '''
-    get_news_url = base_url.format(category,api_key)
+    get_news_url = base_url.format(country,category,api_key)
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
@@ -24,8 +30,8 @@ def get_news(category):
         news_result = None
 
 
-        if get_news_response['articles']:
-            news_result_list = get_news_response['articles']
+        if get_news_response['sources']:
+            news_result_list = get_news_response['sources']
             news_result = process_results(news_result_list)
 
     return news_result
@@ -35,51 +41,62 @@ def process_results(news_list):
     function that takes in the movie results and transform them to a list
     '''
     news_result =[]
-    source_dictionary = {}
+ 
     for news_item in news_list:
-        #storing the nested list in source id
-        source_id = news_item['source']
-        #extract information
-        source_dictionary['id'] = source_id['id']
-        source_dictionary['name'] = source_id['name']
-        id = source_dictionary['id']
-        name = source_dictionary['name']
-        print(name)
-        author = news_item.get('author')
+        id = news_item.get('id')
+        name = news_item.get('name')
+        print(id)
         title = news_item.get('title')
         description = news_item.get('description')
         url = news_item.get('url')
-        urlToImage = news_item.get('urlToImage')
-        publishedAt = news_item.get('publishedAt')
+        category = news_item.get('category')
+        country = news_item.get('country')
 
-        if urlToImage:
-            news_object = Articles(id,name,author,title,description,url,urlToImage,publishedAt)
+        if url:
+            news_object = Source(id,name,title,description,url,category,country)
             news_result.append(news_object)
     return news_result
 
 def get_details(id):
-    get_news_details_url = base_url.format(id,api_key)
+    get_news_details_url = source_url.format(id,api_key)
     with urllib.request.urlopen(get_news_details_url) as url:
         news_details_data = url.read()
-        news_details_response = json.load(news_details_data)
+        news_details_response = json.loads(news_details_data)
+        
+        news_result = None
 
-        news_object = None
+        if news_details_response['articles']:
+           news_source_list = news_details_response['articles']
+           news_result = process_sources(news_source_list)
 
-        if news_details_response:
-            #storing the nested list in source id
-            source_id = news_item['source']
-            #extract information
-            source_dictionary['id'] = source_id['id']
-            source_dictionary['name'] = source_id['name']
-            id = source_dictionary['id']
-            name = source_dictionary['name']
-            print(name)
-            author = news_item.get('author')
-            title = news_item.get('title')
-            description = news_item.get('description')
-            url = news_item.get('url')
-            urlToImage = news_item.get('urlToImage')
-            publishedAt = news_item.get('publishedAt')
+    return news_result
 
-            news_object = Articles(id,name,author,title,description,url,urlToImage,publishedAt)
-    return news_object
+def process_sources(articles_list):
+    '''
+    process dictionary and out out objects
+    '''
+    news_result = []
+    source_dictionary ={}
+    for result in articles_list:
+
+        source_id = result['source']
+
+        source_dictionary['id']= source_id['id']
+        source_dictionary['name'] = source_id['name']
+
+        id = source_dictionary['id']
+        print(id)
+        name = source_dictionary['name']
+
+        author = result.get('author')
+        title = result.get('title')
+        description = result.get('description')
+        url = result.get('url')
+        urlToImage = result.get('urlToImage')
+        publishedAt = result.get('publishedAt')
+
+        if urlToImage:
+            
+            news_object = Articles(id,name,author,title,description,url,urlToImage, publishedAt)
+            news_result.append(news_object)
+    return news_result
