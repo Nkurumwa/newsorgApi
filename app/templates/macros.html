@@ -40,6 +40,7 @@
     background-color: #672121;
     border-color: #121212;
   }
+
   .well {
     min-height: 20px;
     padding: 19px;
@@ -47,29 +48,27 @@
     background-color: #758471;
     border: 1px solid #e3e3e3;
     border-radius: 4px;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
-}
-
-
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+  }
 </style>
 <div class="col-sm-3">
-<div class="well">
-  <nav class="navbar navbar-default" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle uarr collapsed" data-toggle="collapse" data-target="#navbar-collapse-uarr">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/news/{{source.id}}">{{source.name}}</a>
-      </a>
-    </div>
-  </nav>
-  <b>click here to see all the categoried of our {{source.id}} news chanel </b>
+  <div class="well">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle uarr collapsed" data-toggle="collapse" data-target="#navbar-collapse-uarr">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/news/{{source.id}}">{{source.name}}</a>
+        </a>
+      </div>
+    </nav>
+    <b>click here to see all the categoried of our {{source.id}} news chanel </b>
   </div>
 </div>
-  {% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %} {% for article in articles_list %}
+{% endfor %} {% endmacro %} {% macro displayArticleList(articles_list) %} {% for article in articles_list %}
 <!--  
 
  
@@ -89,7 +88,7 @@
       </div>
     </div>
    -->
-   <!-- <div class="we"></div>
+<!-- <div class="we"></div>
    <div class="col-lg-4 col-md-3 col-sm-6 col-xs-12">
      <div class="well">
       <div class="hovereffect">
@@ -101,30 +100,29 @@
       
   </div> -->
 
-  <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+<div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
   <div class="card ">
     <div class="well">
-    <div class="hovereffect">
-      <img class="card-img-top img-responsive" src="{{article.urlToImage}}" alt="Card image cap">
-      <div class="overlay">
+      <div class="hovereffect">
+        <img class="card-img-top img-responsive" src="{{article.urlToImage}}" alt="Card image cap">
+        <div class="overlay">
           <h2>{{article.title}}</h2>
-          
+
           <a class="info" href="{{article.url}}">click here for more</a>
-       </div>
-       </div>
+        </div>
+      </div>
       <div class="card-body">
         <h5 class="card-title">Card title</h5>
         <p class="card-text">{{article.description}}</p>
         <p class="card-text">id :{{article.name}}</p>
         <p class="card-text"> auther :{{article.author}}</p>
-        <p class="card-text"> was published at :  {{article.publishedAt}}</p>
-        
-      </div>
+        <p class="card-text"> was published at : {{article.publishedAt}}</p>
+        <form action = "/setcookie" method = "POST">
+         <button class="btn btn-danger" name = '{{article.url}}'> save offline</button>
+       </form>
       </div>
     </div>
-    </div>
-  
-  {% endfor %} {% endmacro %}
+  </div>
+</div>
 
-
-  
+{% endfor %} {% endmacro %}
