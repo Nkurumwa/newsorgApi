@@ -1,73 +1,149 @@
 {% extends 'base.html'%} {% import 'macros.html' as macro %} {% block content %}
 
-<blockquote class="blockquote blockquote-reverse" style="background-color: #eadddd;">
-    <p class="mb-0">Welcome to the best site in the word for viewing all your news at one place .</p>
-    <footer class="blockquote-footer">created by lewis munene <cite title="Source Title"> irimu</cite></footer>
-  </blockquote>
 
-<div class="container">
-  <div class="well">
-    <h1>general </h1>
+<head>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+</head>
+
+<body>
+
+  <div class="allholder">
+
+    <div class="navoverlay"></div>
+    <div class="nav">
+      <ul>
+        <li class="selected">
+          <i class="fa fa-newspaper-o "></i>
+          <a href="#general">general</a>
+        </li>
+        <li>
+          <i class="fa fa-briefcase"></i>
+          <a href="#business">business</a>
+        </li>
+        <li>
+          <i class="fa fa-quote-right"></i>
+          <a href="#technology"> technology</a>
+        </li>
+        <li>
+          <i class="fa fa-send"></i>
+          <a href="#sports">sports</a>
+        </li>
+        <li>
+          <i class="fa fa-briefcase"></i>
+          <a href="#health">health</a>
+        </li>
+        <li>
+          <i class="fa fa-quote-right"></i>
+          <a href="#science"> science</a>
+        </li>
+        <li>
+          <i class="fa fa-send"></i>
+          <a href="#entertainment">entertainment</a>
+        </li>
+      </ul>
+
+
+
+    </div>
+    <!--end of nav-->
+
+    <div id="content">
+
+      <img src="{{url_for('static',filename='img/download.jpeg')}}" alt="" style=" height: 72px;  width: 100%;">
+      <blockquote class="blockquote blockquote-reverse" style="background-color: #eadddd;">
+        <p class="mb-0">Welcome to the best site in the word for viewing all your news at one place .</p>
+        <footer class="blockquote-footer">created by lewis munene
+          <cite title="Source Title"> irimu</cite>
+        </footer>
+      </blockquote>
+
+      <div class="container">
+        <div class="well">
+          <h1 id="general">general </h1>
+        </div>
+
+
+
+        {{macro.displaySourceList(general)}}
+
+
+
+      </div>
+      <div class="container">
+        <div class="well">
+          <h1 id="business">business</h1>
+        </div>
+
+
+        {{macro.displaySourceList(business)}}
+
+      </div>
+
+      <div class="container">
+        <div class="well">
+          <h1 id = 'technology'>technology</h1>
+        </div>
+
+        {{macro.displaySourceList(technology)}}
+
+
+      </div>
+
+      <div class="container">
+        <div class="well">
+          <h1 id="sports">sports</h1>
+        </div>
+
+        {{macro.displaySourceList(sports)}}
+
+      </div>
+
+      <div class="container">
+        <div class="well">
+          <h1 id="health">health</h1>
+        </div>
+
+        {{macro.displaySourceList(health)}}
+
+      </div>
+      <div class="container">
+        <div class="well">
+          <h1 id="science">science</h1>
+        </div>
+
+        {{macro.displaySourceList(science)}}
+
+      </div>
+      <div class="container">
+        <div class="well">
+          <h1 id="entertainment">entertainment</h1>
+        </div>
+        {{macro.displaySourceList(entertainment)}}
+
+      </div>
+    </div>
+  </div>
+  <!--end of Feed-->
+  </div>
+  <!-- End of Content-->
+  </div>
+  <!--end of allholder-->
+
+
+
+
+
+
+
+
+
+
+
   </div>
 
 
-
-  {{macro.displaySourceList(general)}}
-
+</body>
 
 
-</div>
-<div class="container">
-  <div class="well">
-    <h1>business</h1>
-  </div>
 
-
-  {{macro.displaySourceList(business)}}
-
-</div>
-
-<div class="container">
-  <div class="well">
-    <h1>technology</h1>
-  </div>
-
-  {{macro.displaySourceList(technology)}}
-
-
-</div>
-
-<div class="container">
-  <div class="well">
-    <h1>sports</h1>
-  </div>
-
-  {{macro.displaySourceList(sports)}}
-
-</div>
-
-<div class="container">
-  <div class="well">
-    <h1>health</h1>
-  </div>
-
-  {{macro.displaySourceList(health)}}
-
-</div>
-<div class="container">
-  <div class="well">
-    <h1>science</h1>
-  </div>
-
-  {{macro.displaySourceList(science)}}
-
-</div>
-<div class="container">
-  <div class="well">
-    <h1>entertainment</h1>
-  </div>
-  {{macro.displaySourceList(entertainment)}}
-
-</div>
-</div>
 {% endblock%}
